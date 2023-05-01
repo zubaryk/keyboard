@@ -6,29 +6,50 @@ let keyboard = document.createElement('div');
 keyboard.id = "keyboard";
 document.body.append(keyboard);
 
+/*
+document.onkeydown = function(event) {
+    console.log(event);
+    base.push(event.key);
+    console.log(base);
+};
+*/
 
-let base = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'];
+
+
+let base = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Delete', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'ArrowUp', 'Shift', 'Control', 'Meta', 'Alt', ' ', 'Alt', 'Control', 'ArrowLeft', 'ArrowDown', 'ArrowRight'];
 
 
 function init() {
     let out = '';
     for (let i = 0; i < base.length; i++) {
-        if (i == 12 || i == 23) {
+        if (i == 13) {
+            out +='<div class="btn-special" data="'+ base[i] +'">' + base[i] + '</div>';
+        }
+        if (i == 14 || i == 29 || i == 42 || i == 55 ) {
             out += '<div class="clearfix"></div>';
-        }    
-        out +='<div class="btn" data="'+ base[i] +'">' + base[i] + '</div>';
+        }
+        if (i !== 13) {    
+            out +='<div class="btn" data="'+ base[i] +'">' + base[i] + '</div>';
+        }
     }
 document.querySelector('#keyboard').innerHTML = out;
 }
 init();
 
+
+
 document.onkeydown = function(event) {
+    document.querySelector(' #keyboard .btn-special[data="'+ event.key +'"]').classList.add('active');
+
     document.querySelector(' #keyboard .btn[data="'+ event.key +'"]').classList.add('active');
+
 };
+
 
 document.onkeyup = function(event) {
     document.querySelector(' #keyboard .btn[data="'+ event.key +'"]').classList.remove('active');
 }
+
 
 
 
