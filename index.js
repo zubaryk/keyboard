@@ -14,41 +14,72 @@ document.onkeydown = function(event) {
 };
 */
 
-
-
-let base = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Delete', 'CapsLock', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", 'Enter', 'Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', ',', '.', '/', 'ArrowUp', 'Shift', 'Control', 'Meta', 'Alt', ' ', 'Alt', 'Control', 'ArrowLeft', 'ArrowDown', 'ArrowRight'];
-
+let base = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Delete', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'ArrowUp', 'Control', 'Meta', 'Alt'];
+let specialButton =['Backspace'];
 
 function init() {
     let out = '';
     for (let i = 0; i < base.length; i++) {
-        if (i == 13) {
-            out +='<div class="btn-special" data="'+ base[i] +'">' + base[i] + '</div>';
-        }
-        if (i == 14 || i == 29 || i == 42 || i == 55 ) {
+        if (i == 13 || i == 28 || i == 41 || i == 54 ) {
             out += '<div class="clearfix"></div>';
-        }
-        if (i !== 13) {    
+        } 
             out +='<div class="btn" data="'+ base[i] +'">' + base[i] + '</div>';
+        }  
+        for (let i = 0; i < specialButton.length; i++) {
+            out +='<div class="btn-special" data="'+ specialButton[i] +'">' + specialButton[i] + '</div>';
         }
-    }
-document.querySelector('#keyboard').innerHTML = out;
+
+    document.querySelector('#keyboard').innerHTML = out;
 }
 init();
 
 
-
 document.onkeydown = function(event) {
-    document.querySelector(' #keyboard .btn-special[data="'+ event.key +'"]').classList.add('active');
-
     document.querySelector(' #keyboard .btn[data="'+ event.key +'"]').classList.add('active');
-
 };
 
 
 document.onkeyup = function(event) {
     document.querySelector(' #keyboard .btn[data="'+ event.key +'"]').classList.remove('active');
 }
+
+
+
+
+
+/*
+document.onkeydown = function(event) {
+    document.querySelector(' #keyboard .btn-special[data="'+ event.key +'"]').classList.add('active');
+};
+
+document.onkeyup = function(event) {
+    document.querySelector(' #keyboard .btn-special[data="'+ event.key +'"]').classList.remove('active');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+document.querySelectorAll('#keyboard .btn').forEach(function(element) {
+    element.onclick = function(event) {
+        document.querySelectorAll('#keyboard .btn').forEach(function(element) {
+            element.classList.remove('active');
+        }
+        )
+        let mouse = this.getAttribute('data');
+        this.classList.add('active');
+    }
+})
 
 
 
