@@ -1,0 +1,115 @@
+.screen {
+    width: 927px;
+    height: 100px;
+    display: flex;
+    border: 2px solid blueviolet;
+    margin: auto;
+    padding: 5px;
+    margin-bottom: 20px;
+    color: blue;
+    font-size: 32px;
+}
+
+#keyboard {
+    width: 1150px;
+    height: auto;
+    border: 4px solid blueviolet;
+    padding: 0px 5px 3px;
+    margin: auto;
+    background-color: azure;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.btn {
+    width: 70px;
+    height: 70px;
+    border: 2px solid blueviolet;
+    margin-left: 3px;
+    margin-top: 3px;
+    align-items: center;
+    font-size: 25px;
+    color: blue;
+}
+
+.btn:active {
+    background-color: rgba(0, 195, 255, 0.267);
+}
+
+.btn-special {
+    width: 150px;
+    height: 70px;
+    border: 2px solid blueviolet;
+    margin-left: 3px;
+    margin-top: 3px;
+    align-items: center;
+    font-size: 25px;
+    color: blue;
+    position: absolute;
+    top: 0;
+    right: 5px;
+}
+
+
+
+
+.active {
+    background-color: rgba(0, 195, 255, 0.267);
+}
+
+.clearfix {
+    display: block;
+    width: 100%;
+    clear: both;
+}
+
+/*
+.btn {
+    width: 70px;
+    height: 70px;
+    border: 2px solid blueviolet;
+    margin: 3px;
+    color: red;
+    font-size: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: blue;
+}
+
+.btn-wide:active {
+    background-color: blue;
+}
+
+.btn-wide {
+    width: auto;
+    height: 70px;
+    border: 2px solid blueviolet;
+    color: red;
+    font-size: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.btn-extra-wide {
+    width: 500px;
+    height: 70px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid blueviolet;
+    color: red;
+    font-size: 25px;
+}
+
+.btn-extra-wide:active {
+    background-color: blue;
+}
+*/
+
+
+
+
