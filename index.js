@@ -6,20 +6,32 @@ let keyboard = document.createElement('div');
 keyboard.id = "keyboard";
 document.body.append(keyboard);
 
-let base = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', 'A', 'S', 'D', 'F', 'G', 'H', 
-              'J', 'K', 'L', ';',
-              '"', 'Z', 'X', 'C', 
-              'V', 'B', 'N', 'M', '<',
-              '>', '/'];
+
+let base = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'];
+
 
 function init() {
     let out = '';
     for (let i = 0; i < base.length; i++) {
-        out +='<div class="btn" data=" '+base[i] +' ">' + base[i] + '</div>';
+        if (i == 12 || i == 23) {
+            out += '<div class="clearfix"></div>';
+        }    
+        out +='<div class="btn" data="'+ base[i] +'">' + base[i] + '</div>';
     }
 document.querySelector('#keyboard').innerHTML = out;
 }
 init();
+
+document.onkeydown = function(event) {
+    document.querySelector(' #keyboard .btn[data="'+ event.key +'"]').classList.add('active');
+};
+
+document.onkeyup = function(event) {
+    document.querySelector(' #keyboard .btn[data="'+ event.key +'"]').classList.remove('active');
+}
+
+
+
 
 /*
 let button = document.createElement('button');
